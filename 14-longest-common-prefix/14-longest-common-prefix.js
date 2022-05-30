@@ -4,28 +4,23 @@
  */
 // Time : O(n*m) | m length of strs | n length of first string
 var longestCommonPrefix = function(strs) {
-    var str0 = strs[0];
     var idx = 0;
-    var match_str = "";
     var flag = true;
     
-    while(idx < str0.length) {
+    while(idx < strs[0].length) {
         flag = true;
         for(var i=1; i<strs.length; i++) {
-            if(strs[i][idx] != str0[idx]) {
+            if(strs[i][idx] != strs[0][idx]) {
                 flag = false;
             }
         }   
-        if(flag) {
-            match_str = match_str.concat(str0[idx]);
-            idx++;
+        if(!flag) {
+            return strs[0].slice(0, idx);
         }
-        else {
-            return match_str;
-        }
+        idx++;
     }
     
-    return match_str;
+    return strs[0];
 };
 
 // Approach 1: fail
