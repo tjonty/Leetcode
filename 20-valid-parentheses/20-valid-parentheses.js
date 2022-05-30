@@ -2,9 +2,15 @@
  * @param {string} s
  * @return {boolean}
  */
+// Time: O(n)
 var isValid = function(s) {
     var stack = [];
-    
+//     can also solve this with object; storing values like:
+    // var type = {
+    //     ")" : "(",
+    //     "}" : "{",
+    //     "]" : "["
+    // }
     var op = ["(", "{", "["];
     var cl = [")", "}", "]"];
     
