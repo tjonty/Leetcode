@@ -2,6 +2,7 @@
  * @param {string[]} strs
  * @return {string}
  */
+// Time : O(n*m) | m length of strs | n length of first string
 var longestCommonPrefix = function(strs) {
     var str0 = strs[0];
     var idx = 0;
