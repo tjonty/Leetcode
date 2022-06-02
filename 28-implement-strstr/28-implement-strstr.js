@@ -14,3 +14,5 @@ var strStr = function(haystack, needle) {
     }
     return -1;
 };
+// similar: 
+//     while(haystack.substr(i, needle.length) === needle && i<haystack.length) { i++; };
