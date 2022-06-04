@@ -3,7 +3,7 @@
  * @return {number[]}
  */
 // Time: O(n) | Space: O(1)
-var plusOne = function(digits) {
+var plusOne = function(digits) {    
     var len = digits.length;
     if(digits[len-1] + 1 >= 10) {
         digits[len-1] = 0;
@@ -23,5 +23,10 @@ var plusOne = function(digits) {
     return digits;
 };
 
-// Another Aproach from discussion
+// Another Aproach from discussion - work
 // return [...(BigInt(digits.join(""))+1n).toString()];
+
+// Another - not worked for long string
+// num = parseInt(digits.join(''));
+// num++;
+// return [...String(num).split('')]
