@@ -3,8 +3,8 @@
  * @param {string} b
  * @return {string}
  */
-// Time: O(?) || Space: O(?)
 var addBinary = function(a, b) {
+//     faster than single line code : Time : O(n) | Space : O(1)
     var i = a.length-1;
     var j = b.length-1;
     var carry = 0;
@@ -24,7 +24,8 @@ var addBinary = function(a, b) {
     if(carry === 1) res.push("1");
     
     return res.reverse().join("");
-//     for large numbers
+    
+//     for large numbers Time: O(?) || Space: O(?)
 // return (BigInt('0b' + a)+BigInt('0b' + b)).toString(2);
 };
 // for small numbers
