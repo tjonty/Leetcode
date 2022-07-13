@@ -5,13 +5,15 @@
  */
 // Time: O(nlongn) | Space: O(1)
 var findTheDifference = function(s, t) {
-    let i = 0;
-    t = t.split('').sort().join('');
-    s = s.split('').sort().join('');
-    console.log(s, t);
-    while(i<s.length) {
-        if(t[i] !== s[i]) return t[i];
-        i++;
-    }
-    return t[i];
+    // let i = 0;
+    // t = t.split('').sort().join('');
+    // s = s.split('').sort().join('');
+    // console.log(s, t);
+    // while(i<s.length) {
+    //     if(t[i] !== s[i]) return t[i];
+    //     i++;
+    // }
+    // return t[i];
+    s.split(``).forEach(char => t = t.replace(char, ``));
+    return t;
 };
