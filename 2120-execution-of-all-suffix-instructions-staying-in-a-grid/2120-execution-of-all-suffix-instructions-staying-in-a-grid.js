@@ -5,12 +5,14 @@
  * @return {number[]}
  */
 var executeInstructions = function(n, startPos, s) {
-    let answers = [];
-    for (i = 0; i < s.length; i++) {
+//     Time: O(n^2)
+//     Space: O(n)
+    let answers = []; // S(n) - length of s
+//     T(n) * T(n)
+    for (i = 0; i < s.length; i++) { // T(n)
         let movement = 0;
-        let row = startPos[0];
-        let col = startPos[1];
-        for (j = i; j < s.length; j++) {
+        let [row, col] = startPos;
+        for (j = i; j < s.length; j++) { // T(n)
             if (s[j] == "R") col++;
             else if (s[j] == "L") col--;
             else if (s[j] == "D") row++;
