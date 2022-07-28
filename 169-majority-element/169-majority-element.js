@@ -3,7 +3,7 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    // sol: 3;
+    // sol: 3; average
     // Time: O(n) || Space: O(1)
     var count = 0;
     var candidate = null;
@@ -19,7 +19,7 @@ var majorityElement = function(nums) {
     
 };
 
-// soln: 1;
+// soln: 1; slowest
     // Time: O(n) || Space: O(n)
 //     var data = {};
 //     var division = Math.floor(nums.length/2);
@@ -34,7 +34,7 @@ var majorityElement = function(nums) {
 //             return num;
 //     }
 
-// soln: 2;
+// soln: 2; fastest
     // Time: O(n logn) || Space: O(1)
     // nums.sort();
     // return nums[Math.floor(nums.length/2)];
