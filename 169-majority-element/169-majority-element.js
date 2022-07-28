@@ -3,10 +3,19 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    // soln: 2;
-    // Time: O(n logn) || Space: O(1)
-    nums.sort();
-    return nums[Math.floor(nums.length/2)];
+    // sol: 3;
+    // Time: O(n) || Space: O(1)
+    var count = 0;
+    var candidate = null;
+
+    for(var num of nums) {
+        if(count == 0)
+            candidate = num;
+        
+        count += (num === candidate) ? 1 : -1;
+    }
+    return candidate;
+    
     
 };
 
@@ -24,3 +33,8 @@ var majorityElement = function(nums) {
 //         if(data[num] > division) 
 //             return num;
 //     }
+
+// soln: 2;
+    // Time: O(n logn) || Space: O(1)
+    // nums.sort();
+    // return nums[Math.floor(nums.length/2)];
