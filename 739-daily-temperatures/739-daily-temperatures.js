@@ -22,20 +22,16 @@ var dailyTemperatures = function(temperatures) {
 //         answers.push(count);
 //     }
 //     return answers;
+let res = new Array(temperatures.length).fill(0);
+    let stack = [];
     
-    const len = temperatures.length;
-    
-    const stack = [];
-    const ans = new Array(len).fill(0);
-    for(let i = 0; i < len; i++) {
-        if(i == 0) stack.push([temperatures[i], i]);
-        else {
-            while(stack.length && stack.at(-1)[0] < temperatures[i]) {
-                const prevIdx = stack.pop()[1];
-                ans[prevIdx] = i - prevIdx; 
-            }
-            stack.push([temperatures[i], i]);
+    for(let i=0; i<temperatures.length; i++) {
+        const currentTemp = temperatures[i];
+        while(stack.length > 0 && currentTemp > stack[stack.length-1][0]) {
+            const[, idx] = stack.pop();
+            res[idx] = i - idx;
         }
+        stack.push([currentTemp, i]);
     }
-    return ans;
+    return res
 };
