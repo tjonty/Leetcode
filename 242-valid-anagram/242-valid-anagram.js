@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    // soln 1 Time O(S) Space O(S+T)
+    // soln 1 Time O(S) Space O(S+T) Optimal
     var data_s = {};
     var data_t = {};
     
