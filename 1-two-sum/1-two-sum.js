@@ -4,6 +4,7 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+//     Soln 1: Time O(n) Space O(n) Optimal
     let data = {};
     for(var i=0; i<nums.length; i++) {
         
@@ -14,3 +15,5 @@ var twoSum = function(nums, target) {
         data[nums[i]] = i;
     }
 };
+
+// Soln 2: Time O(n^2) Space O(1) : Two for loops solution
