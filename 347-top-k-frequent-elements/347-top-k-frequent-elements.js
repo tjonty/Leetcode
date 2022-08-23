@@ -23,13 +23,11 @@ var topKFrequent = function(nums, k) {
     
     // No O(n^2) Always run =k so O(k)
     for(var i=freq.length-1;i>=0;i--) {
-        if (freq[i].length > 0) {
-            for(var num of freq[i]) {
-                res.push(num);
-                if(res.length == k)
-                    return res;
-            }   
-        }
+        for(var num of freq[i]) {
+            res.push(num);
+            if(res.length == k)
+                return res;
+        }   
     }
     
 };
