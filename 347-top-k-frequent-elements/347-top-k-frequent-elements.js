@@ -4,7 +4,8 @@
  * @return {number[]}
  */
 var topKFrequent = function(nums, k) {
-    // Soln 2 Time O(n) Space O(n)
+    // Soln 2 Time O(n) Space O(n) Optimal
+//     CAN USE MAXHEAP AND OPTIMIZE THAN SOLN 1 O(KLOGN)
     var data = {}; // O(n)
     var freq = []; // O(n)
     var res = []; // O(k)
@@ -22,10 +23,12 @@ var topKFrequent = function(nums, k) {
     
     // No O(n^2) Always run =k so O(k)
     for(var i=freq.length-1;i>=0;i--) {
-        for(var num of freq[i]) {
-            res.push(num);
-            if(res.length == k)
-                return res;
+        if (freq[i].length > 0) {
+            for(var num of freq[i]) {
+                res.push(num);
+                if(res.length == k)
+                    return res;
+            }   
         }
     }
     
