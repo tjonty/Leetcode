@@ -3,31 +3,34 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    // Soln 3: Time O(n) Space O(n)
+    // Soln 4: Time O(n) Space O(1)
 
-    var prefix = [], postfix = [], answers = [], product = 1; // O(n+n)
+    var answers = []; // Store all the Postfix values in this array 
+    var product = 1;
 
-    for(var i=0;i<nums.length;i++) { // O(n)
+    for(var i=nums.length-1;i>=0;i--) {
         product *= nums[i];
-        prefix[i] = product;
+        answers[i] = product; // Store all the postfix values
     }
 
     product = 1;
-    for(var i=nums.length-1;i>=0;i--) { // O(n)
+    for(var i=0;i<nums.length;i++) {
         product *= nums[i];
-        postfix[i] = product;
+        nums[i] = product; // Store all the prefix values
     }
-    
-    for(var i=0;i<nums.length;i++) { // O(n)
-        if(i-1 < 0)
-            answers[i] = postfix[i+1];
-        else if(i+1 == nums.length)
-            answers[i] = prefix[i-1];
-        else 
-            answers[i] = prefix[i-1] * postfix[i+1];
+
+    for(var i=0;i<nums.length;i++) {
+        if(i > 0 & i+1 < nums.length){
+            answers[i] = answers[i+1] * nums[i-1];
+        } else if(i == nums.length-1){
+            answers[i] = nums[i-1];
+        } else if(i == 0 && i+1 < nums.length) {
+            answers[i] = answers[i+1];
+        }
     }
 
     return answers;
+
 };
 
 //     Soln 1 : With division operator Time O(n) Space O(1) 
@@ -67,3 +70,30 @@ var productExceptSelf = function(nums) {
     // }
 
     // return answers;
+
+// Soln 3: Time O(n) Space O(n)
+// 64% NICELY DONE    
+
+//     var prefix = [], postfix = [], answers = [], product = 1; // O(n+n)
+
+//     for(var i=0;i<nums.length;i++) { // O(n)
+//         product *= nums[i];
+//         prefix[i] = product;
+//     }
+
+//     product = 1;
+//     for(var i=nums.length-1;i>=0;i--) { // O(n)
+//         product *= nums[i];
+//         postfix[i] = product;
+//     }
+    
+//     for(var i=0;i<nums.length;i++) { // O(n)
+//         if(i-1 < 0)
+//             answers[i] = postfix[i+1];
+//         else if(i+1 == nums.length)
+//             answers[i] = prefix[i-1];
+//         else 
+//             answers[i] = prefix[i-1] * postfix[i+1];
+//     }
+
+//     return answers;
