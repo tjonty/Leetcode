@@ -4,7 +4,7 @@
  */
 var productExceptSelf = function(nums) {
     // Soln 5: Time O(n) Space O(1)
-    // Storing Only Prefix 
+    // Storing Only Prefix, HAVE 5 DIFFERENT SOLN 4 & 5 ALMOST SAME 
 
     var answers = [], product = 1;
 
