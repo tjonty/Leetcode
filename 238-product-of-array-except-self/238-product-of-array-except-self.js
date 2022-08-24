@@ -3,35 +3,24 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    // Soln 4: Time O(n) Space O(1)
-//     OPTIMAL 71% , HAVE 4 DIFFERENT SOLUTION
+    // Soln 5: Time O(n) Space O(1)
+    // Storing Only Prefix 
 
-    var answers = []; // Store all the Postfix values in this array 
-    var product = 1;
+    var answers = [], product = 1;
 
-    for(var i=nums.length-1;i>=0;i--) {
+    for(var i=0;i<nums.length;i++) { //Prefix
+        answers[i] = product;
         product *= nums[i];
-        answers[i] = product; // Store all the postfix values
     }
-
+    console.log(answers);
+    
     product = 1;
-    for(var i=0;i<nums.length;i++) {
+    for(var i=nums.length-1;i>=0;i--) {
+        answers[i] *= product;
         product *= nums[i];
-        nums[i] = product; // Store all the prefix values
     }
-
-    for(var i=0;i<nums.length;i++) {
-        if(i > 0 & i+1 < nums.length){
-            answers[i] = answers[i+1] * nums[i-1];
-        } else if(i == nums.length-1){
-            answers[i] = nums[i-1];
-        } else if(i == 0 && i+1 < nums.length) {
-            answers[i] = answers[i+1];
-        }
-    }
-
     return answers;
-
+    
 };
 
 //     Soln 1 : With division operator Time O(n) Space O(1) 
@@ -95,6 +84,34 @@ var productExceptSelf = function(nums) {
 //             answers[i] = prefix[i-1];
 //         else 
 //             answers[i] = prefix[i-1] * postfix[i+1];
+//     }
+
+//     return answers;
+
+// Soln 4: Time O(n) Space O(1)
+//   Storing Postfix and Prefix both
+//     var answers = []; // Store all the Postfix values in this array 
+//     var product = 1;
+
+//     for(var i=nums.length-1;i>=0;i--) {
+//         product *= nums[i];
+//         answers[i] = product; // Store all the postfix values
+//     }
+
+//     product = 1;
+//     for(var i=0;i<nums.length;i++) {
+//         product *= nums[i];
+//         nums[i] = product; // Store all the prefix values
+//     }
+
+//     for(var i=0;i<nums.length;i++) {
+//         if(i > 0 & i+1 < nums.length){
+//             answers[i] = answers[i+1] * nums[i-1];
+//         } else if(i == nums.length-1){
+//             answers[i] = nums[i-1];
+//         } else if(i == 0 && i+1 < nums.length) {
+//             answers[i] = answers[i+1];
+//         }
 //     }
 
 //     return answers;
