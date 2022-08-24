@@ -4,6 +4,7 @@
  */
 var productExceptSelf = function(nums) {
     // Soln 4: Time O(n) Space O(1)
+//     OPTIMAL 71% , HAVE 4 DIFFERENT SOLUTION
 
     var answers = []; // Store all the Postfix values in this array 
     var product = 1;
