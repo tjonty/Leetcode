@@ -5,6 +5,7 @@
 var isValidSudoku = function(board) {
     
     // Soln 2: Time O(n^2) Space O(n^2)
+//     Faster then soln 1
 
     var cols = {};
     var rows = {};
