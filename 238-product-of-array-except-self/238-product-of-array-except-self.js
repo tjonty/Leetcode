@@ -3,21 +3,28 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    // Soln 2: Time O(n^2) Space O(1)
+    // Soln 3: Time O(n) Space O(n)
 
-    var answers = [], j=0, product=1;
+    var prefix = [], postfix = [], answers = [], product = 1; // O(n+n)
 
-    for(var i=0;i<nums.length;i++) {
-        j=0;product = 1;
-        
-        while(j<nums.length){
-            if(j!=i) {
-                product *= nums[j];
-            }
-            j++
-        }
-        
-        answers[i] = product;
+    for(var i=0;i<nums.length;i++) { // O(n)
+        product *= nums[i];
+        prefix[i] = product;
+    }
+
+    product = 1;
+    for(var i=nums.length-1;i>=0;i--) { // O(n)
+        product *= nums[i];
+        postfix[i] = product;
+    }
+    
+    for(var i=0;i<nums.length;i++) { // O(n)
+        if(i-1 < 0)
+            answers[i] = postfix[i+1];
+        else if(i+1 == nums.length)
+            answers[i] = prefix[i-1];
+        else 
+            answers[i] = prefix[i-1] * postfix[i+1];
     }
 
     return answers;
@@ -39,3 +46,24 @@ var productExceptSelf = function(nums) {
 //     }
 
 //     return answers;
+
+
+    // Soln 2: Time O(n^2) Space O(1)
+    // VERY SLOW, 5%
+
+    // var answers = [], j=0, product=1;
+
+    // for(var i=0;i<nums.length;i++) {
+    //     j=0;product = 1;
+        
+    //     while(j<nums.length){
+    //         if(j!=i) {
+    //             product *= nums[j];
+    //         }
+    //         j++
+    //     }
+        
+    //     answers[i] = product;
+    // }
+
+    // return answers;
