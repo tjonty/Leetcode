@@ -4,6 +4,7 @@
  */
 var longestConsecutive = function(nums) {
     // soln 3: Time O(n) Space O(n)
+//     Use Set to reduce the time to search the value to O(1)
     var current_streak = 1, current_num;
     var longest_streak = 0;
     var nums_set = new Set(nums);
