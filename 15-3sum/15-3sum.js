@@ -3,6 +3,9 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
+//     Time: O(nlogn) || sort + O(n^2) || for && while
+//     == Time: O(n^2)
+//     Space: O(1)
     var answers = [];
     var [l,r] = [0,0];
     nums.sort((a,b) => a-b);
