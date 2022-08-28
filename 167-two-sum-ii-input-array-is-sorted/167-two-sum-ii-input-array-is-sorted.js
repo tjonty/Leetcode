@@ -4,6 +4,8 @@
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
+//     Soln 1: Time O(n) Space O(1)
+//     OPTIMAL 99%
     var [l, r] = [0, numbers.length-1];
     while(l<r) {
         if(numbers[l] + numbers[r] == target)
