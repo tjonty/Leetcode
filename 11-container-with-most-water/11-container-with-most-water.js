@@ -3,6 +3,7 @@
  * @return {number}
  */
 var maxArea = function(height) {
+//     Soln 1: O(n) Time Space O(1)
     var [l, r] = [0, height.length-1];
     var result = 0;
 
