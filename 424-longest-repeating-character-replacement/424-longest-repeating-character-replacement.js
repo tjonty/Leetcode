@@ -4,7 +4,7 @@
  * @return {number}
  */
 var characterReplacement = function(s, k) {
-//     Soln Time O(n) Space O(n)
+//  Soln: Time O(n) Space O(n)
     var count = new Array(26).fill(0);
     var res = 0;
 
