@@ -4,7 +4,7 @@
  */
 // Time: O(n)
 var isValid = function(s) {
-//     Soln Time : O(n) Space O(n/2)
+//     Soln Time : O(n) Space O(1)
     var stack = [];
 //     can also solve this with object; storing values like:
     // var type = {
@@ -28,7 +28,7 @@ var isValid = function(s) {
     return true;
 };
 
-// 1st Approach: if -> don't need to close in order.
+// 1st Approach: if -> "don't need to close in order."
 // var data = {
 //         "(" : 0,
 //         "{" : 0,
