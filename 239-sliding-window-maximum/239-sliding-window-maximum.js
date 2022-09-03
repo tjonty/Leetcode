@@ -4,6 +4,7 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function(nums, k) {
+//     Time O(n) Space O(1)
     var output = [];
     var queue = [];
     var [window_start, window_end] = [0, 0];
