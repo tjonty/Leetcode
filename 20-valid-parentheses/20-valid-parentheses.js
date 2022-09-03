@@ -4,6 +4,7 @@
  */
 // Time: O(n)
 var isValid = function(s) {
+//     Soln Time : O(n) Space O(n/2)
     var stack = [];
 //     can also solve this with object; storing values like:
     // var type = {
