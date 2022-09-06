@@ -3,7 +3,7 @@
  * @return {number}
  */
 var evalRPN = function(tokens) {
-    // Nice Way :::
+    // Nice Way But Slow:::
     var OPERATORS = {
         '+': (a, b) => a + b,
         '-': (a, b) => a - b,
