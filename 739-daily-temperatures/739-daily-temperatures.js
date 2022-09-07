@@ -3,6 +3,21 @@
  * @return {number[]}
  */
 var dailyTemperatures = function(temperatures) {
+// Monotonic Stack : Time O(n) Avg | O(n^2) Worst Case | Space O(n)
+    let res = new Array(temperatures.length).fill(0);
+    let stack = [];
+    
+    for(let i=0; i<temperatures.length; i++) {
+        const currentTemp = temperatures[i];
+        while(stack.length > 0 && currentTemp > stack[stack.length-1][0]) {
+            const[, idx] = stack.pop();
+            res[idx] = i - idx;
+        }
+        stack.push([currentTemp, i]);
+    }
+    return res
+};
+
 //     Time: O(n^2) | Space: O(n)
 //     let answers = [];
 //     let count = 0, j = 0;
@@ -22,16 +37,3 @@ var dailyTemperatures = function(temperatures) {
 //         answers.push(count);
 //     }
 //     return answers;
-let res = new Array(temperatures.length).fill(0);
-    let stack = [];
-    
-    for(let i=0; i<temperatures.length; i++) {
-        const currentTemp = temperatures[i];
-        while(stack.length > 0 && currentTemp > stack[stack.length-1][0]) {
-            const[, idx] = stack.pop();
-            res[idx] = i - idx;
-        }
-        stack.push([currentTemp, i]);
-    }
-    return res
-};
