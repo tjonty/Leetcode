@@ -10,18 +10,29 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-       // recursive way Time O(n) 
-    // Space O(n) recursive call will be of size 2
-    if(!head)
-        return null
+    // Iterative way Time O(n) Space O(1)
+    var [prev, curr] = [null, head];
 
-    newHead = head;
-    if(head.next) {
-        newHead = reverseList(head.next);
-        head.next.next = head;
+    while(curr) {
+        nxt = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nxt;
     }
-    head.next = null;
 
-    return newHead;
-
+    return prev;
 };
+// Soln 2
+   // recursive way Time O(n) 
+    // Space O(n) recursive call will be of size 2
+//     if(!head)
+//         return null
+
+//     newHead = head;
+//     if(head.next) {
+//         newHead = reverseList(head.next);
+//         head.next.next = head;
+//     }
+//     head.next = null;
+
+    // return newHead;
