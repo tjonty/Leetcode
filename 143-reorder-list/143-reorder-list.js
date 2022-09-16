@@ -10,6 +10,7 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function(head) {
+//     Time : O(n) Space O(1)
     // Find Middle
     var [slow, fast] = [head, head.next];
     while(fast && fast.next){
