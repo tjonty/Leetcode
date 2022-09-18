@@ -11,13 +11,22 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-//     Time :O(n) Space: O(n)
-    var set = new Set();
-    while(head){
-        if(set.has(head))
+//     Time : O(n) Space: O(1)
+    var [slow, fast] = [head, head];
+    while(fast && fast.next){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow == fast)
             return true;
-        set.add(head)
-        head = head.next
     }
     return false;
 };
+//     Time :O(n) Space: O(n)
+    // var set = new Set();
+    // while(head){
+    //     if(set.has(head))
+    //         return true;
+    //     set.add(head)
+    //     head = head.next
+    // }
+    // return false;
